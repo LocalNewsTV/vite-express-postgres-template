@@ -1,5 +1,6 @@
-FROM postgres
-ENV POSTGRES_DB app_db
-ENV POSTGRES_USER app_admin
-ENV POSTGRES_PASSWORD app_admin
-COPY init.sql /docker-entrypoint-initdb.d/
+FROM postgres:16
+
+COPY db/entrypoint/* /docker-entrypoint-initdb.d/
+
+EXPOSE 5432
+HEALTHCHECK --interval=10s --timeout=10s --retries=5 CMD ["pg_isready", "-U", "postgres"]
