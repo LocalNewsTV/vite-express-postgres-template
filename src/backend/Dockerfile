@@ -1,4 +1,4 @@
-FROM node:18.15.0-alpine AS base
+FROM node:22-alpine AS base
 
 # Directory used in container
 WORKDIR /usr/backend/
@@ -16,7 +16,7 @@ RUN npm run build
 ##################
 ### PROD IMAGE ###
 ##################
-FROM node:18.15.0-alpine as prod
+FROM node:22-alpine AS prod
 ENV NODE_ENV=production
 
 # Add curl for health check
