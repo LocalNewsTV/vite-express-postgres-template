@@ -1,0 +1,31 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "migrate:latest": "knex migrate:latest --knexfile src/knexfile.ts",
+    "migrate:rollback": "knex migrate:rollback --knexfile src/knexfile.ts",
+    "migrate:create": "npx knex migrate:make --knexfile src/knexfile.ts -x ts",
+    "init": "knex init -x ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "knex": "^3.1.0",
+    "pg": "^8.12.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.5.4",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
+    "npm": "^10.8.3",
+    "typescript-eslint": "^8.5.0"
+  }
+}
