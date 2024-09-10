@@ -7,7 +7,7 @@ WORKDIR /usr/backend/
 COPY . .
 
 # Install TypeScript. Needed for build process.
-RUN npm i -D typescript@5.0.4
+RUN npm i -D typescript
 
 # Compile to JavaScript build 
 RUN npm run build
@@ -32,6 +32,6 @@ RUN npm i
 # Copy compiled build from base
 COPY --from=base /usr/backend/dist .
 # Copy swagger over too
-COPY --from=base /usr/backend/public ./public
+COPY --from=base /usr/backend/src/swagger ./src/swagger
 
-CMD [ "node", "server.js" ]
+CMD [ "node", "src/server.js" ]

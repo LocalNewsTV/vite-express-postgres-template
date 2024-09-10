@@ -8,12 +8,9 @@ type Props = {
   req: Request;
   res: Response;
   next: NextFunction;
-}
+};
 
-const globalErrorHandler = ({
-  res,
-  next,
-}: Props) => {
+const globalErrorHandler = ({ res, next }: Props) => {
   res.status(500).json({
     message: 'Internal Server Error',
   });

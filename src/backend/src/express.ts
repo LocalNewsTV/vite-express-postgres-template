@@ -27,13 +27,9 @@ app.disable('x-powered-by');
 app.use(
   '/api/api-docs',
   swaggerUi.serve,
-  swaggerUi.setup(
-    swaggerJSDoc(config.swaggerConfig),
-  ),
+  swaggerUi.setup(swaggerJSDoc(config.swaggerConfig)),
 );
-app.use('/api', [
-  routers.healthRouter,
-]);
+app.use('/api', [routers.healthRouter]);
 
 // Integrate global error handler after routes to cover all ends.
 app.use(middleware.globalErrorHandler);
